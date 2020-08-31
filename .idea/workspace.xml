@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0169add3-de97-44ce-bb67-94b901121fd2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/application-details.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/cbt-result.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/create-cbt.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/adminHome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminHome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cbt.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cbt.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +193,7 @@
       <workItem from="1598699789615" duration="317000" />
       <workItem from="1598701293352" duration="22290000" />
       <workItem from="1598797354684" duration="7085000" />
-      <workItem from="1598871960473" duration="1467000" />
+      <workItem from="1598871960473" duration="2955000" />
     </task>
     <servers />
   </component>
