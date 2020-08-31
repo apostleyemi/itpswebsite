@@ -2,134 +2,81 @@
 
 @section('content')
   {{--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--}}
-{{--<div class="container">--}}
-  {{--  <div class="row justify-content-center">--}}
+<div class="container">
+    <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card-body">
-                @if (session('statusmsg'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('statusmsg') }}
-                    </div>
-                @endif
-                @if (session('cbtstatus'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('cbtstatus') }}
-                    </div>
-                @endif
-
-
-            </div>
             <div class="card">
-                <div class="card-header">{{ __('Welcome to admin Home') }} ||
+                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                    <a href="{{route('createCbt')}}" class="btn-info">Create Question</a>
-                    ||
-                    <a href="{{route('viewQuestion')}}" class="btn-info">View Question</a>
+                <div class="card-body">
+                    @if (session('statusmsg'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('statusmsg') }}
+                        </div>
+                    @endif
+                        @if (session('cbtstatus'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('cbtstatus') }}
+                            </div>
+                        @endif
+
 
                 </div>
 
+                @if(Auth::user()->pay_status==0)
+                    {{ 'you have not paid' }}
+
+                    <a class="btn btn-warning">make payment</a>
 
 
+                @elseif(Auth::user()->pay_status==1)
+                    <br>   <br>   <br>   <br>
+                    <div class="row">
+                        <div class="col-md-8 offset-2">
+                            <ul class="list-group">
 
-
-
-                <div class="body row">
-                <div class="col-md-2">
-
-                   <ul class="list-group">
-                       <li class="list-group-item"><a href="#">Manage Users</a></li>
-                       <li class="list-group-item"><a href="#">CBT panel</a></li>
-                       <li class="list-group-item"><a href="#">Payment Information </a></li>
-
-
-                   </ul>
-                </div>
-                    <div class="col-md-10">
-
-
-
-                        <table class="table">
-                            <caption>Registered Users</caption>
-                            <thead>
-                            <tr>
-                                <th >#</th>
-                                <th >Name </th>
-                                <th >Email</th>
-                                <th >Phone</th>
-                                <th >Gender</th>
-                                <th>State</th>
-                                <th>Form Status</th>
-                                <th> CBT </th>
-                                <th></th>
-
-
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php $x=1; ?>
-                        @foreach ($users as $user)
-                            <tr>
-                                <th scope="row">{{$x++}}</th>
-                                <td>{{$user->first_name}}<br>{{$user->last_name}}</td>
-                                <td>{{$user->email}}</td>
-                                <td>{{$user->phone}}</td>
-                                <td>{{$user->gender}}</td>
-                                <td>{{$user->state_residence}}</td>
-
-                                <td>
-                                    @if($user->form_submitted==1)
-                                <a href="#" class="btn-sm btn-success"> Submitted</a>
+                                @if(Auth::user()->form_submitted==0)
+                                <li class="list-group-item"><a href="fill-form" class="btn-success form-control" >fill Form</a></li>
+                                @endif
+                                @if(Auth::user()->cbt_taken==0)
+                                <li class="list-group-item"><a href="{{ url('takeCbt') }}" class="btn-success form-control" >Take Online Test: Your test starts immediately you click on this button  </a></li>
                                     @else
-                                        <button class="btn-sm btn-warning">Pending</button>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if($user->cbt_taken==1)
-                                        <a href="viewAnswer/{{$user->id}}" class="btn-sm btn-success">view Done</a>
-                                    @else
-                                        <button class="btn-sm btn-warning">Pending</button>
-                                    @endif
+                               {{-- <li class="list-group-item"><a href="#" class="btn-success form-control"  >Application status</a></li>--}}
 
-                                </td>
-                                <th>
-                                    @if($user->cbt_taken==1 && $user->form_submitted==1)
-                                    <a href="viewApplicant/{{$user->id}}" class="btn-info btn-sm">more...</a>
+                                <p class=" card-body" style="color: white; background-color: #6cb2eb">
+
+                                    Kindly check back for your Placement!
+
+                                </p>
                                     @endif
 
 
-
-                                </th>
-
-                            </tr>
-                        @endforeach
+                            </ul>
 
 
-                    {{ $users->links() }}
 
-
-                            </tbody>
-                        </table>
+                        </div>
 
 
                     </div>
-
-
-                    </div>
-
+                   {{-- {{'You have paid'}}--}}
+                @endif
 
             <br>
                 <br> <br>
                 <br> <br>
                 <br> <br>
-
+                <br> <br>
+                <br> <br>
+                <br> <br>
 
 
                 <br>
 
             </div>
         </div>
- {{--   </div>--}}
-{{--</div>--}}
+    </div>
+</div>
 
     <script type="text/javascript">
         function biodataBtn() {

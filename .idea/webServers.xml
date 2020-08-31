@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d7a85c04-28f5-4316-bf10-084c5c33da0f" name="aul.edu.ng" url="http://aul.edu.ng">
+        <fileTransfer accessType="SFTP" host="aul.edu.ng" port="22" sshConfigId="9e6634cb-f1b0-42b3-9cab-627fa64fe166" sshConfig="aul.edu.ng" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

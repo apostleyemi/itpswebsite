@@ -2,70 +2,113 @@
 
 @section('content')
     {{--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--}}
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
-
-                    {{--<div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        {{ __('You are logged in!') }}
-                    </div>
-    --}}
-                    @if(Auth::user()->pay_status==0)
-                        {{ 'you have not paid' }}
-
-                        <a class="btn btn-warning">make payment</a>
+    {{--<div class="container">--}}
+    {{--  <div class="row justify-content-center">--}}
+    <div class="col-md-12">
+        <div class="card-body">
+            @if (session('statusmsg'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('statusmsg') }}
+                </div>
+            @endif
+            @if (session('cbtstatus'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('cbtstatus') }}
+                </div>
+            @endif
 
 
-                    @elseif(Auth::user()->pay_status==1)
-                        <br>   <br>   <br>   <br>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <ul class="list-group">
-                                    <li class="list-group-item"><a href="#" class="btn-success form-control"  onclick="biodataBtn()">Biodata</a></li>
-                                    <li class="list-group-item"><a href="#" class="btn-success form-control" onclick="academicBtn()" >Academic Info</a></li>
-                                    <li class="list-group-item"><a href="#" class="btn-success form-control"  onclick="uploadBtn()">Uploads</a></li>
-
-
-                                </ul>
+        </div>
+        <div class="card">
+            <div class="card-header">{{ __('Welcome to admin Home') }}</div>
 
 
 
-                            </div>
-                            <div class="col-md-9">
-
-                                @include('regForms.biodata')
-                                @include('regForms.academic')
-                                @include('regForms.passport')
-                                @include('regForms.uploads')
-                            </div>
-
-                        </div>
-                        {{-- {{'You have paid'}}--}}
-                    @endif
-
-                    <br>
-                    <br> <br>
-                    <br> <br>
-                    <br> <br>
-                    <br> <br>
-                    <br> <br>
-                    <br> <br>
 
 
-                    <br>
+            <div class="body row">
+                <div class="col-md-2">
+
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="#">Manage Users</a></li>
+                        <li class="list-group-item"><a href="#">CBT panel</a></li>
+                        <li class="list-group-item"><a href="#">Payment Information </a></li>
+
+
+                    </ul>
+                </div>
+                <div class="col-md-10">
+
+
+
+
+
+
+                    <table class="table">
+                        <caption>Score sheet</caption>
+                        <thead>
+                        <tr><th>Question</th><th>Option Selected</th><th>Mark</th></tr>
+                        <?php
+                            $score=0;
+                        ?>
+                        @foreach($answers as $ans)
+                        <tr>
+
+                            <th >{{$ans->question->question}} </th>
+                            <th> {{--{{$ans->selected_option}}--}}
+                            {{$ans->option->options}}</th>
+                            <th>@if($ans->option->is_correct==1)
+                                    <?php
+                                    $score++;
+                                    ?>
+                                <button class="btn-sm btn-success"><span class="fa fa-check"></span></button>
+
+                                @else
+                                    <button class="btn-sm btn-danger"><span class="fa fa-close"></span></button>
+                                @endif
+
+                            </th>
+                        </tr>
+
+
+                        @endforeach
+
+
+                        </thead>
+                        <tbody>
+
+
+
+
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <h2> Total Score={{$score}}</h2>
+
 
                 </div>
+
+
             </div>
+
+
+            <br>
+            <br> <br>
+            <br> <br>
+            <br> <br>
+
+
+
+            <br>
+
         </div>
     </div>
+    {{--   </div>--}}
+    {{--</div>--}}
 
     <script type="text/javascript">
         function biodataBtn() {
